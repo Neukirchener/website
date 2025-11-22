@@ -115,8 +115,8 @@ const config: Config = {
               href: 'https://flasher.meshcore.dev',
             },
             {
-              label: 'Offizielle Karte',
-              href: 'https://map.meshcore.dev/?zoom=11&lat=50.8235&lon=7.2496&cluster=10',
+              label: 'Letsmesh-Karte',
+              href: 'https://analyzer.letsme.sh/map?last_heard_days=1&lat=50.88376&long=7.23022&zoom=10',
             },
             {
               label: 'WhatsApp Community',
