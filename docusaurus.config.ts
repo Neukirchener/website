@@ -119,6 +119,10 @@ const config: Config = {
               href: 'https://analyzer.letsme.sh/map?last_heard_days=1&lat=50.88376&long=7.23022&zoom=10',
             },
             {
+              label: 'Traffic-Analyzer',
+              href: 'https://analyzer.letsme.sh/packets?region=CGN',
+            },
+            {
               label: 'WhatsApp Community',
               href: 'https://chat.whatsapp.com/GKnoM4NDHQD9crIZpvv0Q1?mode=wwt',
             },
