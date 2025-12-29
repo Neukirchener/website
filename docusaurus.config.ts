@@ -116,11 +116,11 @@ const config: Config = {
             },
             {
               label: 'Letsmesh-Karte',
-              href: 'https://analyzer.letsme.sh/map?last_heard_days=1&lat=50.88376&long=7.23022&zoom=10',
+              href: 'https://analyzer.letsmesh.net/map?last_heard_days=1&lat=50.88376&long=7.23022&zoom=10',
             },
             {
               label: 'Traffic-Analyzer',
-              href: 'https://analyzer.letsme.sh/packets?region=CGN',
+              href: 'https://analyzer.letsmesh.net/packets?region=CGN',
             },
             {
               label: 'WhatsApp Community',
