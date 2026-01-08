@@ -16,10 +16,10 @@ graph TB
     B --> C[Mesh Protocol]
     C --> D[Payload Data]
 
-    style A fill:#e1f5ff
-    style B fill:#fff4e6
-    style C fill:#e8f5e9
-    style D fill:#f3e5f5
+    style A fill:#cfd8dc
+    style B fill:#b0bec5
+    style C fill:#e3f2fd
+    style D fill:#e8f5e9
 ```
 
 ### 1. LoRa Physical Layer
@@ -27,10 +27,17 @@ graph TB
 Der LoRa-Chip (z.B. SX1262, SX1276, LLCC68) fügt automatisch hinzu:
 
 ```mermaid
-graph LR
-    A[Preamble] --> B[LoRa Header]
-    B --> C[Mesh Packet]
-    C --> D[CRC-16<br/>Hardware]
+block-beta
+  columns 8
+  A["Preamble<br/>variabel"]:2
+  B["LoRa Header<br/>0-20 Bits"]:2
+  C["Mesh Packet<br/>variabel"]:3
+  D["CRC-16<br/>2 Bytes"]:1
+
+  style A fill:#cfd8dc,stroke:#546e7a,stroke-width:3px
+  style B fill:#b0bec5,stroke:#455a64,stroke-width:3px
+  style C fill:#90a4ae,stroke:#37474f,stroke-width:3px
+  style D fill:#78909c,stroke:#263238,stroke-width:3px
 ```
 
 | Komponente | Größe | Hinzugefügt von | Beschreibung |
@@ -49,11 +56,19 @@ Der LoRa-Chip prüft die CRC-16 automatisch. Nur fehlerfreie Pakete werden an di
 Das Mesh-Paket **innerhalb** des LoRa-Payloads hat folgende Struktur:
 
 ```mermaid
-graph LR
-    A[Header<br/>1 Byte] --> B[Transport Codes<br/>4 Bytes<br/>optional]
-    B --> C[Path Len<br/>1 Byte]
-    C --> D[Path<br/>0-64 Bytes]
-    D --> E[Payload<br/>0-184 Bytes]
+block-beta
+  columns 11
+  H["Header<br/>1 Byte"]:1
+  TC["Transport Codes<br/>4 Bytes<br/>optional"]:2
+  PL["Path Len<br/>1 Byte"]:1
+  PT["Path<br/>0-64 Bytes"]:3
+  PD["Payload<br/>0-184 Bytes"]:3
+
+  style H fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+  style TC fill:#fce4ec,stroke:#c2185b,stroke-width:3px
+  style PL fill:#fff3e0,stroke:#f57c00,stroke-width:3px
+  style PT fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+  style PD fill:#e8f5e9,stroke:#388e3c,stroke-width:3px
 ```
 
 ## Detaillierte Frame-Struktur
