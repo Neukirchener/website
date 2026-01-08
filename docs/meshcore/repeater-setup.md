@@ -24,7 +24,7 @@ Nach dem Flashen kannst du deinen Repeater über die Web-Oberfläche konfigurier
 
 #### Name & Standort
 
-**Name**: Wähle einen aussagekräftigen Namen (z.B. "Bonn-Beuel")
+**Name**: Wähle einen aussagekräftigen Namen (z.B. "DE-BN-53225 Beuel")
 
 **Latitude / Longitude**:
 
@@ -107,14 +107,13 @@ Wenn zwei benachbarte Repeater die gleiche Node-ID haben (z.B. beide `3F`):
 
 **1. Benachbarte Repeater-IDs prüfen**
 
-**Aktuell gibt es keine zentrale Liste oder Karte für das Rheinland!**
+Der [MeshCore Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN) visualisiert die Nutzung von Node-Prefixen im Rheinland und zeigt dir direkt, welche IDs bereits vergeben sind und welche noch frei sind.
 
-Du musst die Node-IDs manuell herausfinden:
-- Prüfe deine Node-Liste im MeshCore-Client
-- Frage in der WhatsApp-Community nach aktiven Repeatern in deiner Nähe
-- Notiere die ersten 2 Hex-Zeichen aller Repeater in Reichweite
+1. Öffne https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN
+2. Überprüfe die Visualisierung der verwendeten Prefixe in der Region CGN
+3. Wähle einen freien Prefix für deinen Repeater
 
-**Beispiel:**
+**Beispiel belegter IDs:**
 ```
 Repeater Köln-Süd:    3F...
 Repeater Bonn-Nord:   B2...
@@ -123,16 +122,16 @@ Repeater Leverkusen:  C4...
 
 **2. Freie Node-ID wählen**
 
-Wähle einen Hexwert, der **nicht** in deiner Umgebung verwendet wird.
+Wähle einen Hexwert (00-FE), der **nicht** in deiner Umgebung verwendet wird.
 
-**Beispiel:** Wenn `3F`, `B2`, `C4` bereits vergeben sind, wähle z.B. `40`, `B3` oder `C5`.
+**Tipp:** Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), um auf einen Blick zu sehen, welche IDs frei sind.
 
 **3. Key generieren**
 
 1. Öffne https://gessaman.com/mc-keygen/
 2. Gib deine gewählte ID ein (z.B. `A7`)
 3. Klicke auf "Generate Keys"
-4. Warte, bis ein passender Key gefunden wurde (bei 2 Zeichen: wenige Sekunden)
+4. Warte, bis ein passender Key generiert wurde (bei 2 Zeichen: wenige Sekunden)
 
 **4. Private Key notieren**
 
@@ -162,42 +161,19 @@ Nach dem Flashen:
 Der Custom Key muss nach dem Flashen über die serielle Console gesetzt werden. Es gibt keine Möglichkeit, den Key direkt beim Flashen zu importieren. Der neue Key wird erst nach einem Neustart aktiv.
 :::
 
-### Community-Koordination
+### Prefix-Nutzung prüfen
 
-**Methoden zur ID-Ermittlung:**
+Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), um die Prefix-Nutzung im Rheinland zu überprüfen:
 
-1. **Eigene Node-Liste prüfen**
-   - Im MeshCore-Client: Zeigt alle empfangenen Repeater
-   - Notiere die ersten 2 Hex-Zeichen jedes Repeaters
-
-2. **WhatsApp-Community fragen**
-   - [MeshCore Rheinland](https://chat.whatsapp.com/GKnoM4NDHQD9crIZpvv0Q1?mode=wwt)
-   - Frage: "Welche Repeater-IDs sind in [Ort] aktiv?"
-
-3. **Direkte Absprache**
-   - Kontaktiere Betreiber in deiner Nähe
-   - Koordiniere vor dem Deployment
-
-:::info Keine zentrale Liste
-Eine zentrale Repeater-Karte oder -Liste wäre ideal, existiert aber aktuell nicht. Die Koordination erfolgt dezentral über die Community.
-:::
-
-**Community-Aufruf:**
-
-Wenn du einen Repeater betreibst, teile in der WhatsApp-Community:
-- Standort (Stadt/Stadtteil)
-- Node-ID (erste 2 Hex-Zeichen)
-- Node-Name
-
-So hilfst du anderen, Kollisionen zu vermeiden!
+- Zeigt verwendete und freie Prefixe auf einen Blick
+- Visualisiert die Belegung aller 255 möglichen IDs (00-FE)
+- Ideal zur Vermeidung von Kollisionen vor dem Deployment
 
 ## Häufige Fragen
 
 **Wie finde ich heraus, welche IDs in meiner Nähe aktiv sind?**
 
-- Eigene Node-Liste (zeigt empfangene Repeater mit IDs)
-- WhatsApp-Community (andere Betreiber fragen)
-- Direkte Kommunikation mit Nachbar-Betreibern
+Nutze den [Prefix Analyzer](https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN), der alle verwendeten und freien Node-IDs im Rheinland visualisiert.
 
 **Kann ich die ID nach dem Flashen ändern?**
 
@@ -220,6 +196,7 @@ Ja, wenn du das Admin-Passwort kennst oder deine Companion-Node freigeschaltet w
 
 **Tools:**
 - MeshCore Flasher: https://flasher.meshcore.dev
+- Prefix Analyzer: https://analyzer.letsmesh.net/nodes/prefix-utilization?region=CGN
 - Key Generator: https://gessaman.com/mc-keygen/
 - USB Config Interface: https://config.meshcore.dev
 
