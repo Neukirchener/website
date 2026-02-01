@@ -1,4 +1,5 @@
 # Installation
+
 ## Vorbereitung
 Für die Installation der Meshtastic‑CLI unter Linux hat sich pipx als die sicherste und angenehmste Methode bewährt. pipx sorgt dafür, dass Meshtastic in einer eigenen, isolierten Umgebung landet und dein System‑Python unangetastet bleibt. Dadurch vermeidest du typische Stolperfallen wie beschädigte Python‑Abhängigkeiten oder Konflikte mit Systempaketen. Meshtastic bleibt sauber getrennt, lässt sich problemlos aktualisieren und bei Bedarf rückstandsfrei entfernen. Es ist ideal für alle, die einfach nur eine funktionierende CLI möchten.
 
