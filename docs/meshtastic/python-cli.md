@@ -22,8 +22,9 @@ pipx ensurepath
 sudo pacman -S pipx
 pipx ensurepath
 ```
-> [!NOTE]
-> Nach pipx ensurepath ist ein einmaliges Ab‑ und wieder Anmelden notwendig, damit dein System den neuen Pfad (~/.local/bin) erkennt.
+:::note
+Nach pipx ensurepath ist ein einmaliges Ab‑ und wieder Anmelden notwendig, damit dein System den neuen Pfad (~/.local/bin) erkennt.
+:::
 
 ### Meshtastic
 Nun wird das eigentliche CLI installiert, damit du deinen Node später bequem konfigurieren kannst. 
@@ -42,8 +43,9 @@ Damit du ohne Root‑Rechte auf Geräte wie /dev/ttyUSB0 oder /dev/ttyACM0 zugre
 ```bash
 sudo usermod -a -G dialout $USER
 ```
-> [!NOTE]
-> Danach meldest du dich einmal ab und anschließend wieder an, damit die neue Gruppen­zugehörigkeit aktiv wird.
+:::note
+Danach meldest du dich einmal ab und anschließend wieder an, damit die neue Gruppen­zugehörigkeit aktiv wird.
+:::
 
 ### Überprüfung
 Um sicherzugehen, dass dein Gerät korrekt vom System erkannt wird, kannst du die verfügbaren seriellen Ports anzeigen lassen:
@@ -85,8 +87,9 @@ Radio:
 ```
 Wenn du Geräteinfos siehst, ist die Installation abgeschlossen.
 
-> [!NOTE]
-> Die oben gezeigte Ausgabe ist nur ein Beispiel und entspricht nicht echten Gerätedaten.
+:::note
+Die oben gezeigte Ausgabe ist nur ein Beispiel und entspricht nicht echten Gerätedaten.
+:::
 
 ## CLI nutzen
 
@@ -159,9 +162,10 @@ Wenn du einen schnellen Überblick über die gängigen Einstellungen brauchst, f
 | `meshtastic --port /dev/ttyUSB0 --set bluetooth.mode FIXED_PIN` | Bluetooth‑Modus festlegen. |
 | `meshtastic --help` | Zeigt die Hilfe an. |
 
-> [!WARNING]
-> `override_duty_cycle=true` darf in Deutschland **nicht** verwendet werden.
-> Diese Option würde die gesetzlich vorgeschriebenen Sendezeitbegrenzungen umgehen.
+:::warning
+`override_duty_cycle=true` darf in Deutschland **nicht** verwendet werden.
+Diese Option würde die gesetzlich vorgeschriebenen Sendezeitbegrenzungen umgehen.
+:::
 
 ## Sonstiges
 ### Installation aktualisieren
