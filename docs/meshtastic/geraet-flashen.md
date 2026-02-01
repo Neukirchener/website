@@ -1,25 +1,31 @@
 # Firmware aufspielen
-Das Flashen der Firmware erfolgt über den offiziellen Web‑Flasher, und die anschließende Erstkonfiguration kannst du wahlweise im Web‑Client, über die CLI oder bequem per Smartphone‑App durchführen.
+
+Das Flashen der Firmware erfolgt über den offiziellen Web‑Flasher. Die anschließende Erstkonfiguration kannst du wahlweise im Web‑Client, über die CLI oder per Smartphone‑App durchführen.
 
 ## Voraussetzungen
-Für den Start benötigst du lediglich:
-* ein Meshtastic‑kompatibles Gerät, 
-* ein USB‑Datenkabel sowie 
-* einen PC oder Laptop mit aktuellem Chrome‑ oder Edge‑Browser.
 
-> [!CAUTION]
-> Vor der Inbetriebnahme müssen alle Antennen angeschlossen sein ansonsten kann das Gerät dauerhaft beschädigt werden.
+Für den Start benötigst du:
 
-## Meshtastic Web Flasher
-Im nächsten Schritt verbindest du das Gerät per USB mit deinem Computer. Anschließend öffnest du im Browser den [Meshtastic Web‑Flasher](https://flasher.meshtastic.org).
+- ein Meshtastic‑kompatibles Gerät
+- ein USB‑Datenkabel
+- einen PC oder Laptop mit aktuellem Chrome‑ oder Edge‑Browser
 
-![Meshtastic WebFlasher](/img/meshtastic/meshtastic-web-flasher.png)
+:::danger Antenne anschließen
+Vor der Inbetriebnahme müssen alle Antennen angeschlossen sein, ansonsten kann das Gerät dauerhaft beschädigt werden.
+:::
 
+## Meshtastic Web‑Flasher
 
-1. Gerät: Wähle das passende Modell aus. Die Filterkategorien helfen dir dabei, die Auswahl schnell einzugrenzen.
-2. Firmware: Wähle die passende Firmware für dein Gerät aus. Für Einsteiger empfiehlt sich meist die aktuelle „Beta“-Version, da diese stabil läuft und neue Funktionen enthält.
-3. Flash: Starte den Flash‑Vorgang, um das Firmware‑Update auf dein Gerät zu übertragen.
+Verbinde das Gerät per USB mit deinem Computer und öffne im Browser den [Meshtastic Web‑Flasher](https://flasher.meshtastic.org).
 
-> [!NOTE]
-> Am unteren Rand der Seite findest du hilfreiche Links, unter anderem zu den Spracheinstellungen.
-> Nach dem Flashen kann das Gerät einmal neu starten. Warte anschließend einige Sekunden, bis es im Web‑Client erscheint. Möchtest du stattdessen mit der App oder dem CLI fortfahren, folge der entsprechenden Anleitung weiter unten.
+![Meshtastic Web‑Flasher](/img/meshtastic/meshtastic-web-flasher.png)
+
+1. **Gerät:** Wähle das passende Modell aus. Die Filterkategorien helfen dir, die Auswahl schnell einzugrenzen.
+2. **Firmware:** Wähle die passende Firmware für dein Gerät. Für Einsteiger empfiehlt sich die aktuelle Beta‑Version, da diese stabil läuft und neue Funktionen enthält.
+3. **Flash:** Starte den Flash‑Vorgang, um die Firmware auf dein Gerät zu übertragen.
+
+:::info Hinweis
+Am unteren Rand der Seite findest du hilfreiche Links, unter anderem zu den Spracheinstellungen.
+
+Nach dem Flashen startet das Gerät einmal neu. Warte einige Sekunden, bis es im Web‑Client erscheint. Möchtest du stattdessen mit der App oder dem CLI fortfahren, folge der entsprechenden Anleitung weiter unten.
+:::
