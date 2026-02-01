@@ -1,21 +1,23 @@
-# Installation
+# Meshtastic Python CLI
 
-## Vorbereitung
+## Installation
+
+### Vorbereitung
 Für die Installation der Meshtastic‑CLI unter Linux hat sich pipx als die sicherste und angenehmste Methode bewährt. pipx sorgt dafür, dass Meshtastic in einer eigenen, isolierten Umgebung landet und dein System‑Python unangetastet bleibt. Dadurch vermeidest du typische Stolperfallen wie beschädigte Python‑Abhängigkeiten oder Konflikte mit Systempaketen. Meshtastic bleibt sauber getrennt, lässt sich problemlos aktualisieren und bei Bedarf rückstandsfrei entfernen. Es ist ideal für alle, die einfach nur eine funktionierende CLI möchten.
 
-### Debian / Ubuntu / Linux Mint
+#### Debian / Ubuntu / Linux Mint
 ```bash
 sudo apt install pipx
 pipx ensurepath
 ```
 
-### Fedora
+#### Fedora
 ```bash
 sudo dnf install pipx
 pipx ensurepath
 ```
 
-### Arch / Manjaro
+#### Arch / Manjaro
 ```bash
 sudo pacman -S pipx
 pipx ensurepath
@@ -23,7 +25,7 @@ pipx ensurepath
 > [!NOTE]
 > Nach pipx ensurepath ist ein einmaliges Ab‑ und wieder Anmelden notwendig, damit dein System den neuen Pfad (~/.local/bin) erkennt.
 
-## Meshtastic
+### Meshtastic
 Nun wird das eigentliche CLI installiert, damit du deinen Node später bequem konfigurieren kannst. 
 ```bash
 pipx install meshtastic
@@ -35,7 +37,7 @@ meshtastic --version
 ```
 Wenn dir die Versionsnummer angezeigt wird, ist die Installation erfolgreich abgeschlossen und die CLI steht bereit.
 
-## USB‑Zugriff
+### USB‑Zugriff
 Damit du ohne Root‑Rechte auf Geräte wie /dev/ttyUSB0 oder /dev/ttyACM0 zugreifen kannst, fügst du deinen Benutzer der Gruppe dialout hinzu:
 ```bash
 sudo usermod -a -G dialout $USER
@@ -43,7 +45,7 @@ sudo usermod -a -G dialout $USER
 > [!NOTE]
 > Danach meldest du dich einmal ab und anschließend wieder an, damit die neue Gruppen­zugehörigkeit aktiv wird.
 
-## Überprüfung
+### Überprüfung
 Um sicherzugehen, dass dein Gerät korrekt vom System erkannt wird, kannst du die verfügbaren seriellen Ports anzeigen lassen:
 ```bash
 ls /dev/ttyUSB* /dev/ttyACM* 2>/dev/null
@@ -87,8 +89,8 @@ Wenn du Geräteinfos siehst, ist die Installation abgeschlossen.
 > Die oben gezeigte Ausgabe ist nur ein Beispiel und entspricht nicht echten Gerätedaten.
 
 
-# Sonstiges
-## Meshtastic aktualisieren
+## Sonstiges
+### Installation aktualisieren
 Wenn du Meshtastic über pipx installiert hast, kannst du Updates sehr einfach einspielen:
 
 ```bash
@@ -102,7 +104,7 @@ Falls du zusätzlich das CLI‑Tool meshtastic in einer eigenen Umgebung laufen 
 pipx upgrade-all
 ```
 
-## Meshtastic entfernen
+### CLI entfernen
 Wenn du Meshtastic nicht mehr benötigst oder sauber neu installieren möchtest:
 
 ```bash
