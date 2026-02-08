@@ -1,4 +1,4 @@
-# Contact - ein Console UI für Meshtastic
+# Console UI: Contact
 
 Contact ist ein Terminal User Interface (TUI) für Meshtastic. Die textbasierte Oberfläche läuft vollständig im Terminal und eignet sich besonders für Headless-Systeme, Raspberry Pis und Remote-Server per SSH.
 
