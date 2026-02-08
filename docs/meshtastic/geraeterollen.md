@@ -11,12 +11,12 @@ Die Rolle bestimmt, wie ein Node im Mesh agiert – ob er Nachrichten routet, Te
 | Rolle | Funktion | Typischer Einsatz |
 |---|---|---|
 | **CLIENT** | Sendet, empfängt, routet wenn nötig | Standard für alle Geräte |
-| **CLIENT_MUTE** | Nur eigene Nachrichten, kein Routing | Mehrere Geräte am selben Standort |
+| **CLIENT_MUTE** | Nur eigene Nachrichten, kein Routing | Mobile/portable Nodes, mehrere Geräte am selben Standort |
 | **CLIENT_HIDDEN** | Sendet nur bei Bedarf | Stealth, Energiesparen |
-| **CLIENT_BASE** | Bevorzugtes Routing zu/von favorisierten Nodes | Dachantenne mit definierten Favoriten |
-| **ROUTER** | Priorisiertes Routing, reduzierte Telemetrie | Feste Infrastrukturknoten |
-| **ROUTER\_LATE** | Höfliches Routing mit Verzögerung | Isolierte Mesh-Segmente ohne direkten Router-Sichtbereich |
-| **REPEATER** | Nur Weiterleitung, unsichtbar in der Nodes-Liste | Stille Reichweitenerweiterung |
+| **CLIENT_BASE** | Bevorzugtes Rebroadcasting für/von favorisierte Nodes | Dachantenne mit definierten Favoriten |
+| **ROUTER** | Bricht Rebroadcast nie ab, reduzierte Telemetrie | Feste Infrastrukturknoten |
+| **ROUTER\_LATE** | Wie ROUTER, aber mit spätem Zeitslot | Isolierte Mesh-Segmente ohne direkten Router-Sichtbereich |
+| **REPEATER** | Wie ROUTER, komplett unsichtbar (kein Remote-Admin möglich) | Unsichtbare Reichweitenerweiterung |
 | **SENSOR** | Priorisierte Telemetrieübertragung | Wetter-/Umweltsensoren |
 | **TRACKER** | Priorisierte GPS-Positionsübertragung | Mobile Einsätze, Asset-Tracking |
 | **LOST\_AND\_FOUND** | Sendet Standort regelmäßig als Nachricht | Verlorene Geräte wiederfinden |
@@ -39,11 +39,11 @@ Priorisiert das Routing von und zu favorisierten Nodes, alle anderen Pakete beha
 
 ### ROUTER
 
-Für fest installierte Knoten an strategischen Positionen (Dach, Turm, Mast). Priorisiert das Weiterleiten von Paketen, sendet weniger Telemetrie und „schneidet sich vor" beim Rebroadcasting. Wird in der Nodes-Liste angezeigt. Werden Router gegenseitig als Favoriten eingetragen, zählen Hops zwischen ihnen nicht gegen das Hop-Limit (**Zero-Cost Hops**).
+Für fest installierte Knoten an strategischen Positionen (Dach, Turm, Mast). Bricht einen geplanten Rebroadcast nie ab – auch dann nicht, wenn ein anderer Node das Paket bereits weitergeleitet hat. Sendet weniger Telemetrie und „schneidet sich vor" beim Rebroadcasting. Wird in der Nodes-Liste angezeigt. Werden Router gegenseitig als Favoriten eingetragen, zählen Hops zwischen ihnen nicht gegen das Hop-Limit (**Zero-Cost Hops**).
 
 ### ROUTER\_LATE
 
-Wie ROUTER, aber „höflich": Erkennt ROUTER_LATE dass ein anderer Node bereits rebroadcastet, weicht es in ein späteres Zeitfenster aus statt abzubrechen. Geeignet für Standorte, die geografisch isolierte Mesh-Segmente anbinden (Tallagen, Funklöcher hinter Hügeln) – aber nur dort, wo kein normaler ROUTER die Verbindung übernehmen kann.
+Wie ROUTER – bricht Rebroadcast nie ab – verwendet aber immer den späten Zeitslot, sodass ROUTER und andere höher priorisierte Nodes zuerst senden können. Geeignet für Standorte, die geografisch isolierte Mesh-Segmente anbinden (Tallagen, Funklöcher hinter Hügeln) – aber nur dort, wo kein normaler ROUTER die Verbindung übernehmen kann.
 
 :::warning Airtime beachten
 ROUTER_LATE erhöht die Gesamtairtime spürbar. ChUtil sollte unter 25 % und AirTxUtil unter 7–8 % bleiben. Für Dachknoten oder mobile Geräte ist CLIENT die bessere Wahl.
@@ -51,7 +51,11 @@ ROUTER_LATE erhöht die Gesamtairtime spürbar. ChUtil sollte unter 25 % und Air
 
 ### REPEATER
 
-Wie ROUTER, aber komplett ohne eigenen Traffic – keine Telemetrie, keine Ankündigungen. Taucht nicht in der Nodes-Liste auf. Reine Reichweitenerweiterung für stille Knoten.
+Verhält sich identisch zu ROUTER, aber komplett ohne eigenen Traffic – keine Telemetrie, keine Ankündigungen. Taucht nicht in der Nodes-Liste auf und ist damit nicht remote administrierbar.
+
+:::note Deprecated
+REPEATER ist seit Firmware v2.7.11 deprecated. Für neue Installationen ROUTER verwenden.
+:::
 
 ### SENSOR
 
