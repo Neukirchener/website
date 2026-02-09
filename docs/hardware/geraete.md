@@ -53,6 +53,57 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
+## SenseCAP Card Tracker T1000-E für Meshtastic
+Der SenseCAP Card Tracker T1000-E für Meshtastic ist ein kompakter, kreditkartengroßer Tracker mit integrierter GPS- und LoRa-Technologie für präzise und stromsparende Ortung und Kommunikation.
+
+Geliefert wird er mit einem magnetischen Ladekabel. Option 
+
+:::note Hinweis
+Achte beim Kauf darauf, die „for Meshtastic“-Version zu wählen.
+:::
+| Eigenschaft | Beschreibung |
+|------------|---------|
+| Netzwerkprotokolle | LoRa (863–928 MHz), Bluetooth v5.1 |
+| Reichweite | 2–5 km (abhängig von Antenne, Installation und Umgebung) |
+| Antenne | Intern (GNSS / LoRa / Wi-Fi / BLE) |
+| Schutzklasse | IP65 |
+| Zertifizierung | CE / FCC |
+| Abmessungen | 85 × 55 × 6.5 mm |
+| Gewicht | 32 g |
+| Betriebstemperatur | −20 °C bis +60 °C |
+| Betriebsfeuchtigkeit | 5 % – 95 % (keine Kondensation) |
+
+### Sensoren & Bedienelemente
+
+| Eigenschaft | Beschreibung |
+|------------|---------|
+| Temperatursensor | −20 bis 60 °C, ±1 °C Genauigkeit (min ±0.5 °C), Auflösung 0.1 °C |
+| Lichtsensor | 0–100 % (0 % = dunkel, 100 % = maximale Helligkeit) |
+| Beschleunigungssensor | 3-Achs-Accelerometer (Bewegungserkennung, aktuell nicht in Meshtastic genutzt) |
+| LED | 1× Status-LED |
+| Buzzer | 1× akustisches Statussignal |
+| Taster | 1× Bedienknopf |
+
+### Stromversorgung & Akku
+
+| Eigenschaft | Beschreibung |
+|------------|---------|
+| Akkutyp | Wiederaufladbarer Lithium-Akku |
+| Akkukapazität | 700 mAh |
+| Batteriestatus | Periodische Übertragung des Akkustands |
+| Ladeanschluss | Magnetisches USB-Ladekabel (1 m, Adapter nicht enthalten) |
+| Eingangsspannung | 4.7 – 5.5 V DC |
+| Ladetemperatur | 0 °C bis +45 °C |
+
+:::note Taster
+Der Taster dient zum Ein-/Ausschalten, Aktivieren von Bluetooth und zum Auslösen von Statusfunktionen. Signaltöne beschränken sich derzeit auf Start- und Bestätigungstöne sowie Warnungen bei niedrigem Akkustand.
+:::
+
+### Links
+ * [Herstellerseite](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html)
+ * [Wikieintrag](https://wiki.seeedstudio.com/sensecap_t1000_e/)
+ * [Forum](https://forum.seeedstudio.com/t/sensecap-t1000-e-meshtastic-tracker-user-guide/287783)
+
 
 ## Seeed Studio Xiao nRF52840 WIO
 
@@ -93,5 +144,6 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
+| Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 27 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
