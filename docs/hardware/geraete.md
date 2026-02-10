@@ -53,6 +53,27 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 
 Überarbeitete Version des V3 mit verbessertem Antennenanschluss und Layout. Für Neueinsteiger empfehlenswerter als der V3, da aktueller Stand der Technik.
 
+## SenseCAP Card Tracker T1000-E
+
+| Eigenschaft | Details |
+|---|---|
+| Preis | ~50–70 € |
+| MCU | Nordic nRF52840 |
+| LoRa | LR1110, 868 MHz (EU), 22 dBm Sendeleistung |
+| Konnektivität | Bluetooth 5.1 |
+| Display | ✗ |
+| Akku | 700 mAh integriert |
+| GPS | ✓ (AG3335) |
+| Formfaktor | Kreditkartengroß (85 × 55 × 6.5 mm), IP65 |
+
+![SenseCAP Card Tracker T1000-E](/img/hardware/devices/sensecap-card-tracker-t1000-e.jpg)
+
+Kompakter GPS-Tracker im Kreditkartenformat mit integriertem 700 mAh Akku und IP65-Schutz. Trotz kleiner, interner Antenne erreicht er überraschend gute Reichweiten und genießt große Beliebtheit. Besonderheit: Integrierte Sensoren für Temperatur, Licht und Bewegung sowie Status-LED, Buzzer und Bedientaster. Wird mit magnetischem Ladekabel geliefert.
+
+:::note Hinweis
+Achte beim Kauf darauf, die „for Meshtastic"-Version zu wählen. [Herstellerseite](https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html) · [Wiki](https://wiki.seeedstudio.com/sensecap_t1000_e/) · [Forum](https://forum.seeedstudio.com/t/sensecap-t1000-e-meshtastic-tracker-user-guide/287783)
+:::
+
 
 ## Seeed Studio Xiao nRF52840 WIO
 
@@ -93,5 +114,6 @@ Modulares System: Basisboard + austauschbare Module (GPS, Sensoren, Display, Sol
 | Heltec Mesh Node T114 | ✓ | ✗ | optional | ✓ | ✓ | 22 dBm |
 | Heltec V3 | ✓ | ✓ | ✗ | ✓ | ✗ | 22 dBm |
 | Heltec V4 | ✓ | ✓ | optional | ✓ | ✓ | 27 dBm |
+| Seeed T1000-E | ✗ | ✗ | ✓ | ✓ (intern, 700 mAh) | ✗ | 22 dBm |
 | Seeed Xiao nRF52840 WIO | ✗ | ✗ | ✗ | ✓ | ✗ | 22 dBm |
 | RAK Wireless WisBlock | optional | optional | optional | ✓ | optional | 22 dBm |
