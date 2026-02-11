@@ -67,4 +67,4 @@ Alle Funkamateure und Hobbyfunker sind willkommen – unabhängig von Erfahrung 
 73 und viel Erfolg bei der Notfunkübung!
 
 *Mathias, DL3KE*<br/>
-*Notfunkreferent DARC Distrikt G, Notfunk Bonn*
+*Notfunkreferent im DARC Distrikt G, Notfunk Bonn*
