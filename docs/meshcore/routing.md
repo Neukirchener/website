@@ -43,112 +43,38 @@ Die folgenden Schritte beschreiben FLOOD-Routing am **Beispiel einer privaten Na
 
 ### 1. Initiales Senden
 
-Alice sendet ihre erste private Nachricht an Bob. Der Pfad ist noch unbekannt.
+Alice sendet ihre erste private Nachricht an Bob. Der Pfad ist noch unbekannt — das Paket startet mit leerem Path.
 
-```mermaid
-sequenceDiagram
-    participant A as Alice<br/>(Sender)
-    participant R1 as Repeater 1<br/>0xA1
-    participant R2 as Repeater 2<br/>0xB2
-    participant R3 as Repeater 3<br/>0xC3
-    participant B as Bob<br/>(Empfänger)
+![FLOOD Schritt 1: Alice sendet](/img/meshcore/routing/flood-01-initial.svg)
 
-    Note over A: Path = []<br/>FLOOD Mode
-    A->>R1: Packet (Path=[])
-    A->>R2: Packet (Path=[])
-
-    Note over R3: Außerhalb Reichweite<br/>empfängt nichts
-
-    Note over R1,R2: Repeater in direkter Reichweite<br/>von Alice empfangen das Paket
-```
-
-### 2. Repeater fügen sich zum Path hinzu
+### 2. Repeater empfangen und fügen sich zum Path hinzu
 
 Jeder Repeater, der das Paket empfängt:
 1. Prüft: "Habe ich dieses Paket schon gesehen?" (Duplicate Detection)
-2. Wenn nein: Fügt eigenen Hash zum Path hinzu
+2. Wenn nein: Hängt eigene ID an den Path an
 3. Plant Weiterleitung mit RX Delay (SNR-basiert) + TX Delay (random)
 
-```mermaid
-sequenceDiagram
-    participant A as Alice
-    participant R1 as Repeater 1<br/>0xA1
-    participant R2 as Repeater 2<br/>0xB2
-    participant R3 as Repeater 3<br/>0xC3
-    participant B as Bob
-
-    A->>R1: Path=[]
-    Note over R1: ✓ Noch nicht gesehen<br/>+ Eigenen Hash anhängen<br/>Path=[0xA1]
-
-    A->>R2: Path=[]
-    Note over R2: ✓ Noch nicht gesehen<br/>+ Eigenen Hash anhängen<br/>Path=[0xB2]
-
-    Note over R3: Hat nichts empfangen<br/>→ Keine Aktion
-
-    Note over R1,R2: Warten mit<br/>RX Delay (SNR-basiert)<br/>+ TX Delay (random)
-```
+![FLOOD Schritt 2: R1 und R2 empfangen](/img/meshcore/routing/flood-02-r1r2-receive.svg)
 
 ### 3. Weiterleitung mit aufgebautem Path
 
-Die Repeater leiten das Paket mit ihrem Hash im Path weiter:
+R1 hat den kürzeren Delay (besseres SNR) und sendet als Erster. R2 wartet noch. R3 empfängt von R1 und hängt sich ebenfalls an.
 
-```mermaid
-sequenceDiagram
-    participant A as Alice
-    participant R1 as Repeater 1<br/>0xA1
-    participant R2 as Repeater 2<br/>0xB2
-    participant R3 as Repeater 3<br/>0xC3
-    participant B as Bob
-
-    Note over R1: Delay abgelaufen
-    R1->>R2: Path=[0xA1]
-    R1->>R3: Path=[0xA1]
-    R1->>B: Path=[0xA1]
-
-    Note over R2: Delay abgelaufen
-    R2->>R1: Path=[0xB2]
-    R2->>R3: Path=[0xB2]
-    R2->>B: Path=[0xB2]
-
-    Note over R3: Empfängt [0xA1]<br/>✓ Noch nicht gesehen<br/>+ Hash anhängen
-
-    Note over R3: Delay abgelaufen
-    R3->>B: Path=[0xA1, 0xC3]
-
-    Note over R3: Empfängt [0xB2]<br/>✗ Schon gesehen<br/>→ Verwerfen
-
-    Note over B: Empfängt 3 Pakete:<br/>[0xA1], [0xB2], [0xA1,0xC3]<br/>"First Packet Wins"
-```
+![FLOOD Schritt 3: R1 sendet zuerst](/img/meshcore/routing/flood-03-r1-sends.svg)
 
 ### 4. Empfänger erhält Pakete über verschiedene Wege
 
-Bob empfängt dasselbe Paket über mehrere Pfade:
+Bob empfängt von R1 als Erstem (bestes SNR, kürzester Delay) — **First Packet Wins**:
 
-```mermaid
-graph TD
-    A[Alice sendet] --> R1[Repeater 1<br/>0xA1]
-    A --> R2[Repeater 2<br/>0xB2]
+![FLOOD Schritt 4: Bob empfängt — First Packet Wins](/img/meshcore/routing/flood-04-bob-receives.svg)
 
-    R1 --> R3[Repeater 3<br/>0xC3]
-    R2 --> R3
-
-    R1 --> B[Bob]
-    R2 --> B
-    R3 --> B
-
-    style A fill:#e8f5e9,stroke:#388e3c,stroke-width:3px
-    style B fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
-    style R1 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style R2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style R3 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-```
-
-**Bob empfängt (aus Schritt 3):**
 - Paket 1: Path = `[0xA1]` (direkt über Repeater 1) ← **Gewinnt!**
-- Paket 2: Path = `[0xB2]` (direkt über Repeater 2) → Verworfen
-- Paket 3: Path = `[0xA1, 0xC3]` (über Repeater 1 → Repeater 3) → Verworfen
+- Paket 2: Path = `[0xB2]` (direkt über Repeater 2) → Verworfen als Duplikat
+- Paket 3: Path = `[0xA1, 0xC3]` (über R1 → R3) → Verworfen als Duplikat
 
-Bob akzeptiert **nur das erste empfangene Paket** ("First Packet Wins"). Alle anderen werden als Duplikate verworfen.
+![FLOOD Schritt 5: Duplikate verwerfen](/img/meshcore/routing/flood-05-duplicates.svg)
+
+Bob akzeptiert **nur das erste empfangene Paket**. Alle anderen werden als Duplikate verworfen.
 
 **Frame-Wachstum bei FLOOD** — PathLen nimmt mit jedem Hop zu:
 
@@ -173,6 +99,8 @@ Im PATH-Paket sind zwei verschiedene Routing-Informationen enthalten:
 
 Path-Learning nutzt den **Payload** — nicht den Path-Header!
 :::
+
+![Path Learning: Bidirektional](/img/meshcore/routing/path-learning.svg)
 
 ```mermaid
 sequenceDiagram
@@ -237,28 +165,25 @@ sequenceDiagram
 
 ## DIRECT-Routing: Source Routing
 
-Nachdem Alice den Pfad zu Bob gelernt hat, verwendet sie DIRECT-Routing:
+Nachdem Alice den Pfad zu Bob gelernt hat, verwendet sie DIRECT-Routing. Der Pfad ist im Frame eingebettet und **schrumpft** bei jedem Hop.
 
-```mermaid
-sequenceDiagram
-    participant A as Alice
-    participant R1 as Repeater 1<br/>0xA1
-    participant R2 as Repeater 2<br/>0xB2
-    participant B as Bob
+![DIRECT Schritt 1: Alice sendet mit gesetztem Pfad [A1, C3]](/img/meshcore/routing/direct-01-alice-sends.svg)
 
-    Note over A: Kenne Pfad=[0xA1]<br/>DIRECT Mode
+R1 prüft: Steht meine ID vorne im Path?
 
-    A->>R1: Path=[0xA1]<br/>DIRECT
-    A->>R2: Path=[0xA1]<br/>DIRECT
+![DIRECT Schritt 2: R1 prüft den Path](/img/meshcore/routing/direct-02-r1-receives.svg)
 
-    Note over R1: ✓ Ich bin 0xA1<br/>→ Hash entfernen<br/>→ Weiterleiten
+R1 entfernt sich aus dem Path und leitet weiter. R2 verwirft, da er nicht im Path steht:
 
-    Note over R2: ✗ Ich bin nicht 0xA1<br/>→ Verwerfen
+![DIRECT Schritt 3: R1 kürzt den Path und leitet weiter](/img/meshcore/routing/direct-03-r1-trims.svg)
 
-    R1->>B: Path=[]<br/>DIRECT
+![DIRECT Schritt 4: R2 verwirft das Paket](/img/meshcore/routing/direct-04-r2-discards.svg)
 
-    Note over B: Nachricht erhalten!
-```
+R3 ist jetzt vorne im Path — entfernt sich und leitet an Bob weiter:
+
+![DIRECT Schritt 5: R3 kürzt — Path wird leer](/img/meshcore/routing/direct-05-r3-trims.svg)
+
+![DIRECT Schritt 6: Bob empfängt mit Path=[]](/img/meshcore/routing/direct-06-bob-receives.svg)
 
 **Frame-Schrumpfung bei DIRECT** — PathLen nimmt mit jedem Hop ab:
 
@@ -273,8 +198,8 @@ Bob empfängt!
 ```
 
 **Wichtig:**
-- Nur der **erste Repeater im Path** (0xA1) leitet weiter
-- Repeater 2 verwirft das Paket, da er nicht im Path ist
+- Nur der **erste Repeater im Path** leitet weiter
+- Alle anderen Repeater verwerfen das Paket
 - Der Repeater **entfernt sich selbst** aus dem Path beim Weiterleiten
 - Am Ende erhält Bob ein Paket mit leerem Path (`Path=[]`)
 
