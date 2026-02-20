@@ -18,8 +18,11 @@ Zuerst musst du herausfinden, wie der öffentliche Schlüssel des Geräts lautet
 
 1. Öffne die Meshtastic App auf deinem Admin-Gerät.
 2. Gehe zu **Settings** > **Security**.
-3. Suche das Feld **Public Key**  und kopiere diesen Schlüssel.
-4. **Wichtig:** Sichere dir unbedingt den **Private Key** dieses Geräts (z.B. als Backup exportieren). Wenn du die App neu installierst und den Private Key verlierst, verlierst du auch den Zugriff auf deine Remote-Nodes!
+3. Suche das Feld **Public Key** und kopiere diesen Schlüssel.
+
+:::warning Wichtig
+Sichere dir unbedingt den **Private Key** dieses Geräts (z.B. als Backup exportieren). Wenn du die App neu installierst und den Private Key verlierst, verlierst du auch den Zugriff auf deine Remote-Nodes!
+::: 
 
 ### 2. Ziel-Node autorisieren
 
