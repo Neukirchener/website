@@ -34,6 +34,7 @@ Stromsparender Einsteiger-Node dank nRF52840. Kein WiFi, daher kein MQTT-Bridge-
 | Akku | Li-Po Anschluss, kein Akku im Lieferumfang |
 | GPS | ✗ |
 | Formfaktor | Kompakt |
+| USB-ID | 10c4:ea60 Silicon Labs CP210x UART Bridge |
 
 Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes im Netz — gut unterstützt, viele Anleitungen verfügbar.
 
@@ -65,6 +66,7 @@ Günstigster Einstieg mit vollem Funktionsumfang. Einer der meistgenutzten Nodes
 | Akku | 700 mAh integriert |
 | GPS | ✓ (AG3335) |
 | Formfaktor | Kreditkartengroß (85 × 55 × 6.5 mm), IP65 |
+| USB-ID | 239a:8029 Adafruit T1000-E-BOOT |
 
 ![SenseCAP Card Tracker T1000-E](/img/hardware/devices/sensecap-card-tracker-t1000-e.jpg)
 
