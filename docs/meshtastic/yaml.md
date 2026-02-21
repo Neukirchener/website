@@ -2,7 +2,8 @@ YAML ist ein menschenlesbares, textbasiertes Datenformat für Konfigurationsdate
 
 # Aufbau
 YAML besteht aus Schlüssel‑Wert‑Paaren, Listen und verschachtelten Objekten.  
-Die Struktur entsteht ausschließlich durch Leerzeichen.
+Die Struktur wird hauptsächlich durch Einrückung mit Leerzeichen bestimmt.
+
 ## Grundelemente
 **Schlüssel‑Wert**
 ```yaml
@@ -15,7 +16,7 @@ device:
   region: EU_868
 ```
 
-:::Hinweis
+:::Hinweis Konvention
 Bei der Verschachtelung kommen 2 Leerzeichen zum Einsatz.
 :::
 
@@ -35,13 +36,13 @@ channels:
 # Syntax
 YAML folgt wenigen aber klar vorgegebenen Regeln. 
 ## Einrückungen
-Nur Leerzeichen werden verwendet, üblich sind zwei Leerzeichen pro Ebene, und die Einrückung bestimmt dabei vollständig die Struktur.
+Üblich sind zwei Leerzeichen pro Ebene, vorgeschrieben ist nur eine konsistente Einrückung.
 
 ## Schlüssel‑Wert‑Paare
 ```yaml
 schluessel: wert
 ```
-Werte können Strings, Zahlen, Booleans, Listen oder Objekte sein.
+Werte können Strings, Zahlen, Booleans, Listen oder Mappings sein.
 ## Listen
 ```yaml
 channels:
@@ -57,7 +58,7 @@ Die verwendeten Datentypen:
 | Zahl     | 42              | Ganzzahl oder Float         |
 | Boolean  | true / false    | Wahr/Falsch                 |
 | Liste    | - item1         | Mehrere Werte               |
-| Objekt   | key: value      | Strukturierte Werte         |
+|  Mapping  | key: value      | Strukturierte Werte         |
 
 # YAML‑Schlüssel
 Die folgenden Schlüssel sind für Meshtastic von Relevanz:
@@ -75,7 +76,7 @@ Die folgenden Schlüssel sind für Meshtastic von Relevanz:
 | mqtt          | MQTT‑Konfiguration |
 
 # Beispielkonfiguration 
-DEie folgende Minimal-Konfiguration für das Rheinland:
+Die folgende Minimal-Konfiguration für das Rheinland:
 ```yaml
 device:
   region: EU_868
@@ -88,8 +89,9 @@ channels:
 ```
 
 :::Hinweis
-EU_868 passt für Deutschland, psk: AQ== ist der standardmäßig gesetzte Platzhalter‑Schlüssel (entspricht dem Byte 0x01).
-Er dient lediglich als Default‑Wert für neue oder unkonfigurierte Kanäle und sollte in produktiven Setups immer durch einen eigenen, sicheren PSK ersetzt werden, uplink/downlink schalten Senden und Empfangen frei, und zusätzliche Bereiche wie power, telemetry oder owner lassen sich bei Bedarf ergänzen.
+EU_868 passt für Deutschland; psk: `AQ==` ist der standardmäßig gesetzte Platzhalter‑Schlüssel (entspricht dem Byte 0x01).
+Er dient lediglich als Default‑Wert für neue oder unkonfigurierte Kanäle und sollte in produktiven Setups immer durch einen eigenen, sicheren PSK ersetzt werden.
+Der Pre-Shared Key ist ein vorab geteilter geheimer Schlüssel, den alle Teilnehmer eines Systems kennen müssen, um sich zu authentifizieren oder verschlüsselt zu kommunizieren; uplink/downlink schalten Senden und Empfangen frei, und zusätzliche Bereiche wie power, telemetry oder owner lassen sich bei Bedarf ergänzen.
 :::
 
 
@@ -110,7 +112,7 @@ Beim Teilen von Informationen solltest du die folgenden Punkte beachten:
 | channels.psk       | ✖️     | Schlüssel |
 
 :::Warnung
-Backups enthalten PSKs und sollten **nicht öffentlich** geteilt werden.
+Backups enthalten PSKs und sollten **nicht** öffentlich geteilt werden.
 :::
 
 # Fehlerquellen
@@ -159,10 +161,9 @@ channels:
     downlink_enabled: true
 ```
 
----
-
 ## Referenz
-Typische Parameter für die jeweikigen Code-Blöck:
+Die folgenden Schlüssel beziehen sich auf Meshtastic-Konfigurationen:
+
 ## device
 | Parameter | Bedeutung |
 |----------|-----------|
@@ -179,7 +180,7 @@ Typische Parameter für die jeweikigen Code-Blöck:
 | Parameter | Bedeutung |
 |----------|-----------|
 | is_power_saving | Energiesparmodus |
-| min_battery_level | Untere Akkuschwelle |
+| min_battery_level | Unteree Akkuschwellwert |
 
 ## telemetry
 | Parameter | Bedeutung |
