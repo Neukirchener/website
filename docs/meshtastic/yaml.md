@@ -1,4 +1,4 @@
-YAML ist ein menschenlesbares, textbasiertes Datenformat für Konfigurationsdateien. Geräteeinstellungen, Kanäle und Backups werden klar und strukturiert dargestellt.
+YAML ist ein menschenlesbares, textbasiertes Datenformat für Konfigurationsdateien. Geräteeinstellungen, Kanäle und Backups. Diese werden durch die verwendete Syntax klar und strukturiert dargestellt.
 
 # Aufbau
 YAML besteht aus Schlüssel‑Wert‑Paaren, Listen und verschachtelten Objekten.  
