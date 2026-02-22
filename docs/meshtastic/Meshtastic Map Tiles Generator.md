@@ -10,20 +10,21 @@ Die Installation ist bewusst einfach gehalten und funktioniert unter Linux, macO
 ### Linux
 Das Script benötigt Python 3 und kann unter Debian/Ubuntu installiert werden:
 ```bash
-sudo apt install python3 python3-pip python3-pil python3-request
+sudo apt install python3 python3-pip python3-pil python3-requests
 ```
 
 ## Script
-Nachdem Python installiert wurde lädst  du dir von [GitHub](https://github.com/JustDr00py/tdeck-maps) das [Archiv](https://github.com/JustDr00py/tdeck-maps/archive/refs/heads/main.zip)  herunter und entpackst dieses. In dem neuen Ordner **tdeck-maps-main** findest du nun das Skript, welches du über das Terminal aufrufen kannst:
+Nachdem Python installiert wurde, lädst du dir von [GitHub](https://github.com/JustDr00py/tdeck-maps) das [Archiv](https://github.com/JustDr00py/tdeck-maps/archive/refs/heads/main.zip)  herunter und entpackst dieses. In dem neuen Ordner **tdeck-maps-main** findest du nun das Skript, welches du über das Terminal aufrufen kannst:
 
 ```bash
 python3 meshtastic_tiles.py --help
 ```
 
 # Bedienung
+## Terminal
 Für den Aufruf des Skriptes müssen bestimmte [Parameter](#parameter)  übergeben werden.
 
-## Grevenbroich + Umgebung
+### Grevenbroich + Umgebung
 Für das komplette Stadtgebiet Grevenbroich, inklusive aller Ortsteile, wurden die folgenden Koordinaten für die Bounding‑Box verwendet:
 
  - **North:** 51.15
@@ -31,7 +32,7 @@ Für das komplette Stadtgebiet Grevenbroich, inklusive aller Ortsteile, wurden d
  - **East:** 6.75
  - **West:** 6.50
 
-In diesem Beispiel verwende ich `--min-zoom 12` und `--max-zoom 15`, weil für das Stadtgebiet Grevenbroich eine höhere Detailstufe sinnvoll ist. Die [Quelle](#Kartenquellen) `osm` liefert eine Straßenkarte, und mit `--output-dir grevenbroich_tiles` wird ein eigener Ordner für die Region der erzeugten Kacheln angelegt.
+In diesem Beispiel verwende ich `--min-zoom 12` und `--max-zoom 15`, weil für das Stadtgebiet Grevenbroich eine höhere Detailstufe sinnvoll ist. Die [Quelle](#kartenquellen) `osm` liefert eine Straßenkarte, und mit `--output-dir grevenbroich_tiles` wird ein eigener Ordner für die Region der erzeugten Kacheln angelegt.
 
 ```bash
 python3 meshtastic_tiles.py --coords \
@@ -122,15 +123,17 @@ Der Ordner **grevenbroich_tiles** wurde angelegt und enthält die gewünschten D
 
 53 directories, 730 files
 ```
+## Browser
+Im Archiv befindet sich ebenfalls die Datei **maps.html**, welche mit dem Browser aufgerufen werden kann. Wähle den gewünschten Kartenausschnitt auf der Karte aus, lege die Zoomstufen fest und lass dir den passenden Befehl generieren. Dieser wird kopiert und im [Terminal](#terminal) ausgeführt.
 
 ## T-Deck
-Um das Kartenmaterial mit dem T‑Deck verwenden zu können so muss der durch den Skriptaufruf erstellte Ordner von dir nach **/sdcard/maps/** auf der micro-sd-karte kopiert werden (z.B. **/sdcard/maps/grevenbroich/**). 
+Um das Kartenmaterial mit dem T‑Deck verwenden zu können muss der durch den Skriptaufruf erstellte Ordner von dir nach **/sdcard/maps/** auf der micro-sd-karte kopiert werden (z.B. **/sdcard/maps/grevenbroich/**). 
  Auf dem Gerät im Menü unter **Settings → Maps → Offline Maps aktivieren → Map Style auswählen** die gewünschte Karte auswählen. Dieser entspricht dem Ordnernamen unter `/maps/`. Danach lädt Meshtastic die Tiles automatisch.
 
 
 # Beispiele
 ## Nordrhein-Westfalen
-Die folgenden Koordinaten umfassen NRW. EInige weitere Regionen sind unter [Bounding-Box](#Bounding-Box) zu ersehen.
+Die folgenden Koordinaten umfassen NRW. Einige weitere Regionen sind unter [Bounding-Box](#Bounding-Box) zu ersehen.
 
 ```bash
 python3 meshtastic_tiles.py --coords \
