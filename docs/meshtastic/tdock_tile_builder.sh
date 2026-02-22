@@ -32,10 +32,10 @@ BASE_OUTDIR="$(dirname "$0")/tiles_output"
 mkdir -p "$BASE_OUTDIR"
 
 # Regionen aktivieren/deaktivieren
-REGION_RHEINLAND=false
+REGION_RHEINLAND=true
 REGION_RUHRGEBIET=false
 REGION_BERGISCHES_LAND=false
-REGION_RHEIN_KREIS_NEUSS=true
+REGION_RHEIN_KREIS_NEUSS=false
 
 # Zoom-Level
 MIN_ZOOM=8
