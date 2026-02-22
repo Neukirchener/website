@@ -174,8 +174,6 @@ Der Export speichert die vollständige Node-Konfiguration als YAML-Datei – ein
 ### Backup erstellen
 
 ```bash
-meshtastic --export-config > config.yaml
-# oder mit explizitem Port:
 meshtastic --port /dev/ttyUSB0 --export-config > config.yaml
 ```
 
