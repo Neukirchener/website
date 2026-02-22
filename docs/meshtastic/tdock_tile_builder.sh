@@ -29,6 +29,7 @@ echo
 
 command -v python3 >/dev/null || { echo -e "${RED}python3 nicht gefunden${RESET}"; exit 1; }
 command -v zip >/dev/null || { echo -e "${RED}zip nicht gefunden${RESET}"; exit 1; }
+command -v bc >/dev/null || { echo -e "${RED}bc nicht gefunden${RESET}"; exit 1; }
 
 if [ ! -f "meshtastic_tiles.py" ]; then
   echo -e "${RED}meshtastic_tiles.py nicht gefunden!${RESET}"
@@ -43,10 +44,10 @@ BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 BASE_OUTDIR="${BASE_DIR}/tiles_output"
 mkdir -p "$BASE_OUTDIR"
 
-REGION_RHEINLAND=true
+REGION_RHEINLAND=false
 REGION_RUHRGEBIET=false
 REGION_BERGISCHES_LAND=false
-REGION_RHEIN_KREIS_NEUSS=false
+REGION_RHEIN_KREIS_NEUSS=true
 
 MIN_ZOOM=8
 MAX_ZOOM=12
@@ -93,7 +94,7 @@ declare -A WEST=(
 )
 
 ###############################################################################
-# Logging Funktion
+# Logging
 ###############################################################################
 
 log() {
@@ -150,8 +151,14 @@ process_region() {
 
   if [ "$ZIP_AFTER_DOWNLOAD" = true ]; then
     log "ZIP wird erstellt..."
+
     local zipname="${BASE_OUTDIR}/${name}_${date_str}.zip"
-    zip -r "$zipname" "$outdir" >/dev/null
+
+    (
+      cd "$BASE_OUTDIR"
+      zip -r "${name}_${date_str}.zip" "$name" >/dev/null
+    )
+
     rm -rf "$outdir"
   fi
 
