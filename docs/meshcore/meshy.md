@@ -85,8 +85,8 @@ Die Seitenleiste bietet die folgenden Funktionen
 |----------|--------|
 | <kbd>Strg</kbd>+<kbd>Q</kbd>| Anwendung beenden |
 | <kbd>Strg</kbd>+<kbd>D</kbd> | Verbindung zum Gerät trennen |
-| <kbd>Strg</kbd>+<kbd>?</kbd> | Tastenkombinationen anzeigen |
-| <kbd>F1</kbd> | Hilfe |
+| <kbd>Strg</kbd>+<kbd>?</kbd> | Tastenkürzel anzeigen |
+| <kbd>F1</kbd> | Hilfe (Browser) |
 
 ## Navigation
 | Abkürzung | Aktion |
@@ -98,20 +98,20 @@ Die Seitenleiste bietet die folgenden Funktionen
 | <kbd>Strg</kbd>+<kbd>5</kbd> | Einstellungen |
 | <kbd>Alt</kbd>+<kbd>↑</kbd> | Vorheriger Kontakt/Kanal |
 | <kbd>Alt</kbd>+<kbd>↓</kbd> | Nächster Kontakt/Kanal |
-| <kbd>Alt</kbd>+<kbd>Umschalt</kbd>+<kbd>↑</kbd> | Zuvor ungelesen |
-| <kbd>Alt</kbd>+<kbd>Umschalt</kbd>+<kbd>↓</kbd> | Als nächstes ungelesen |
+| <kbd>Alt</kbd>+<kbd>Umschalt</kbd>+<kbd>↑</kbd> | Vorherige ungelesene Nachricht anzeigen |
+| <kbd>Alt</kbd>+<kbd>Umschalt</kbd>+<kbd>↓</kbd> | Zur nächsten ungelesen Nachricht springen |
 
 ## Chat
 | Abkürzung | Aktion |
 |----------|--------|
 | <kbd>Enter</kbd> | Nachricht senden |
-| <kbd>Strg</kbd>+<kbd>N</kbd> | Neue Nachricht |
-| <kbd>Strg</kbd>+<kbd>F</kbd> | Suchen |
+| <kbd>Strg</kbd>+<kbd>N</kbd> | Neue Nachricht verfassen |
+| <kbd>Strg</kbd>+<kbd>F</kbd> | Suche |
 
 ## Karte
 | Abkürzung | Aktion |
 |----------|--------|
-| <kbd>Strg</kbd>+<kbd>M</kbd> | Quellen für benutzerdefinierte Fliesen |
+| <kbd>Strg</kbd>+<kbd>M</kbd> | Quellen für benutzerdefinierte Kartenteile |
 
 
 # Links
