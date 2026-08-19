@@ -36,20 +36,20 @@ Bereits gekoppelte Geräte werden hier automatisch aufgelistet. Verbindungswiede
 
 ### Wifi/TCP
 Für netzwerkverbundene Begleitgeräte oder Fernzugriff:
- * "Add TCP Companion".
+ * *"Add TCP Companion"*.
  * IP-Adresse oder Hostname eingeben (z. B. `192.168.47.47`).
  * Port angeben. Standardwert ist `5000`.
  * *"Verbinden"* 
 
 :::note
-TCP-Verbindungen werden in den Einstellungen gespeichert und können später wiederhergestellt werden. Um die Adresse einer gespeicherten Verbindung zu ändern, klicken Sie mit der rechten Maustaste darauf (oder tippen Sie länger darauf) und wählen Sie „ Adresse ändern“ . Über dasselbe Kontextmenü können Sie gespeicherte Verbindungen auch löschen.
+[TCP](https://de.wikipedia.org/wiki/Transmission_Control_Protocol)-Verbindungen werden in den Einstellungen gespeichert und können später wiederhergestellt werden. Um die Adresse einer gespeicherten Verbindung zu ändern, klicken Sie mit der rechten Maustaste darauf (oder tippen Sie länger darauf) und wählen Sie „ Adresse ändern“ . Über dasselbe Kontextmenü können Sie gespeicherte Verbindungen auch löschen.
 :::
 
 # Konfiguration
 Über das "Hamburger-Menü" oder die Tastenkombination <kbd>Strg</kbd>+<kbd>5</kbd> gelangt man zu den Einstellungen. Hier die [Vorgaben](https://www.meshrheinland.de/meshcore/companion-setup) beachten und einstellen. Diese Parameter sind entscheidend, damit Nachrichten zuverlässig zugestellt werden können.
 
 ## Datensicherung
-Über die Funktionen "Backup" und "Restore" können die Gerätedaten gesichert und zurückgespielt werden.
+Über die Funktionen *"Backup"* und *"Restore"* können die Gerätedaten gesichert und zurückgespielt werden.
 
 Meshy unterstützt sowohl die manuelle als auch die automatische tägliche Sicherungen. Hier kann man auswählen, welche Bereiche gesichert werden sollen (Einstellungen, Kontakte, Kanäle, Nachrichten, Routing‑Verlauf). 
 
